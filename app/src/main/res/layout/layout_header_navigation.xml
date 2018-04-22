@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    android:background="@drawable/backgroundheader"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgAnhDaiDien"
+        android:layout_width="@dimen/size75dp"
+        android:layout_height="@dimen/size75dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/avatar_macdinh"
+        android:layout_marginLeft="@dimen/size25dp"
+        />
+
+
+    <com.facebook.login.widget.ProfilePictureView
+        android:layout_height="@dimen/size75dp"
+        android:layout_width="@dimen/size75dp"
+        android:id="@+id/avatar"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/size25dp"
+        />
+
+    <TextView
+        android:id="@+id/txtTenFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/avatar2"
+        android:layout_marginLeft="20dp"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:text="TRAN LAM"
+        android:layout_marginTop="10dp"
+        android:fontFamily="serif"
+        />
+
+</RelativeLayout>

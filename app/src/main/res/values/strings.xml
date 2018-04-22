@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Quản lý khách sạn</string>
+    <string name="mo">Mở</string>
+    <string name="dong">Đóng</string>
+</resources>
