@@ -7,10 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class TrangChuFragment extends Fragment {
     View view;
 
+    WebView webView;
 
     @Nullable
     @Override
@@ -24,10 +28,15 @@ public class TrangChuFragment extends Fragment {
     }
 
     private void addEvents() {
-
+        webView.loadUrl("http://www.tynguyen9104.com/");
     }
 
     private void addControls() {
-
+        webView = view.findViewById(R.id.webView);
+        webView.setWebViewClient(new WebViewClient());
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setJavaScriptEnabled(true);
     }
 }

@@ -1,6 +1,7 @@
 package vn.edu.lamthpd01881.nhom2_qlks;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -55,7 +56,12 @@ public class DangNhapActivity extends AppCompatActivity implements NavigationVie
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
 
+        fragmentManager = getSupportFragmentManager();
 
+        FragmentTransaction transactionTrangChu = fragmentManager.beginTransaction();
+        TrangChuFragment trangChuFragment = new TrangChuFragment();
+        transactionTrangChu.replace(R.id.content,trangChuFragment);
+        transactionTrangChu.commit();
     }
 
     @Override
@@ -72,54 +78,42 @@ public class DangNhapActivity extends AppCompatActivity implements NavigationVie
                 drawerLayout.closeDrawers();
                 break;
 
-//            case R.id.itemHocTap:
+            case R.id.itemHocTap:
 //                FragmentTransaction transactionHocTap = fragmentManager.beginTransaction();
 //                HocTapFragment hocTapFragment = new HocTapFragment();
 //                transactionHocTap.replace(R.id.content,hocTapFragment);
 //                transactionHocTap.addToBackStack(hocTapFragment.getClass().getSimpleName());
 //                transactionHocTap.commit();
 //
-//                item.setChecked(true);
-//                drawerLayout.closeDrawers();
-//                break;
+                item.setChecked(true);
+                drawerLayout.closeDrawers();
+                break;
 //
-//            case R.id.itemTinTuc:
+            case R.id.itemTinTuc:
 //                FragmentTransaction transactionTinTuc = fragmentManager.beginTransaction();
 //                TinTucFragment tinTucFragment = new TinTucFragment();
 //                transactionTinTuc.replace(R.id.content,tinTucFragment);
 //                transactionTinTuc.addToBackStack(tinTucFragment.getClass().getSimpleName());
 //                transactionTinTuc.commit();
 //
-//                item.setChecked(true);
-//                drawerLayout.closeDrawers();
-//                break;
+                item.setChecked(true);
+                drawerLayout.closeDrawers();
+                break;
 //
-//            case R.id.itemBanDo:
+            case R.id.itemBanDo:
 //                FragmentTransaction transactionBanDo = fragmentManager.beginTransaction();
 //                BanDoFragment banDoFragment = new BanDoFragment();
 //                transactionBanDo.replace(R.id.content,banDoFragment);
 //                transactionBanDo.addToBackStack(banDoFragment.getClass().getSimpleName());
 //                transactionBanDo.commit();
 //
-//                item.setChecked(true);
-//                drawerLayout.closeDrawers();
-//                break;
+                item.setChecked(true);
+                drawerLayout.closeDrawers();
+                break;
 
             case R.id.itemDangXuat:
-                int dnbanggmail = getIntent().getIntExtra("dnbanggmail",0);
-                if (dnbanggmail == 1){
-                    imgAnhDaiDien.setImageResource(R.drawable.backgroundheader);
-                    txtTenFacebook.setText("");
-                    finish();
-                }else if (dnbanggmail == 2){
-                    LoginManager.getInstance().logOut();
-                    finish();
-                }else{
-                    LoginManager.getInstance().logOut();
-                    profilePictureView.setProfileId(null);
-                    txtTenFacebook.setText("");
-                    finish();
-                }
+                Intent intent = new Intent(DangNhapActivity.this, TrangChuActivity.class);
+                startActivity(intent);
                 item.setChecked(true);
                 drawerLayout.closeDrawers();
                 break;
